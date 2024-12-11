@@ -52,6 +52,23 @@ Run the following:
     kubectl create -f ./deploy-with-collector-k8s/loadgenerator.yaml
 ```
 
+For Delete:
+
+```
+kubectl delete -f ./kubernetes-manifests/adservice.yaml    
+kubectl delete -f ./kubernetes-manifests/redis.yaml    
+kubectl delete -f ./kubernetes-manifests/cartservice.yaml    
+kubectl delete -f ./kubernetes-manifests/checkoutservice.yaml    
+kubectl delete -f ./kubernetes-manifests/currencyservice.yaml    
+kubectl delete -f ./kubernetes-manifests/emailservice.yaml    
+kubectl delete -f ./kubernetes-manifests/frontend.yaml    
+kubectl delete -f ./kubernetes-manifests/paymentservice.yaml    
+kubectl delete -f ./kubernetes-manifests/productcatalogservice.yaml   
+kubectl delete -f ./kubernetes-manifests/recommendationservice.yaml    
+kubectl delete -f ./kubernetes-manifests/shippingservice.yaml
+kubectl delete -f ./kubernetes-manifests/loadgenerator.yaml
+```
+
 Ensure everything is running with `kubectl get pods` and inspect any pods as needed.
 
 Next run the `OTel Collector`
@@ -59,6 +76,22 @@ Next run the `OTel Collector`
 ```
     kubectl create -f ./deploy-with-collector-k8s/otelcollector.yaml
 ```
+
+
+For delete run the `OTel Collector`
+
+```
+    kubectl delete -f ./deploy-with-collector-k8s/otelcollector.yaml
+```
+
+Access the web frontend in a browser:
+The frontend will be available at: http://localhost:8080/.
+
+Access Jaeger in a browser to view your traces:
+The Jaeger UI will be available at: http://localhost:16686/.
+
+[Optional] Clean up:
+To kill all containers, simply run hack/kill-containers.sh.
 
 
 **Option 2 Run without collector and point directly to Elastic APM Server**
